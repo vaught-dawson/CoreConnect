@@ -1,0 +1,126 @@
+:root {
+    --primary: #BB86FC;
+    --primary-brand: #9C27B0;
+    --primary-variant: #3700B3;
+    --secondary: #03DAC6;
+    --background: #121212;
+    --surface: #121212;
+    --error: #CF6679;
+    --on-primary: #000000;
+    --on-secondary: #000000;
+    --on-background: #FFFFFF;
+    --on-surface: #FFFFFF;
+    --on-error: #000000;
+    --min-nav-width: 64px;
+    --max-nav-width: 176px;
+}
+
+body {
+    background-color: #121212;
+}
+
+select {
+    color: white;
+    border: none;
+    background-color: var(--background);
+    background: rgba(255,255,255,.05);
+    box-shadow: 0px 0px 5px black;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+input {
+    color: white;
+    border: none;
+    background-color: var(--background);
+    background: rgba(255,255,255,.05);
+    box-shadow: 0px 0px 5px black;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.dp01 {
+    background: rgba(255,255,255,.05);
+    box-shadow: 0px 0px 5px black;
+}
+
+.dp02 {
+    background: rgba(255,255,255,.07);
+    box-shadow: 0px 0px 5px black;
+}
+
+.dp03 {
+    background: rgba(255,255,255,.08);
+    box-shadow: 0px 0px 5px black;
+}
+
+.dp04 {
+    background: rgba(255,255,255,.09);
+    box-shadow: 0px 0px 5px black;
+}
+
+.dp06 {
+    background: rgba(255,255,255,.11);
+    box-shadow: 0px 0px 5px black;
+}
+
+.dp08 {
+    background: rgba(255,255,255,.12);
+    box-shadow: 0px 0px 5px black;
+}
+
+.dp12 {
+    background: rgba(255,255,255,.14);
+    box-shadow: 0px 0px 5px black;
+}
+
+.dp16 {
+    background: rgba(255,255,255,.15);
+    box-shadow: 0px 0px 5px black;
+}
+
+.dp24 {
+    background: rgba(255,255,255,.16);
+    box-shadow: 0px 0px 5px black;
+}
+
+.text-high {
+    opacity: 67%;
+}
+
+.text-medium {
+    opacity: 60%;
+}
+
+.text-disabled {
+    opacity: 38%;
+}
+
+.on-primary {
+    color: var(--on-primary);
+}
+
+.on-secondary {
+    color: var(--on-secondary);
+}
+
+.on-background {
+    color: var(--on-background);
+} 
+
+.on-surface {
+    color: var(--on-surface);
+}
+
+.on-error {
+    color: var(--on-error);
+}
+
+.focused {
+    background: rgba(255,255,255,.12);
+    stroke: white;
+}
+
+.card {
+    border-radius: 4px;
+}

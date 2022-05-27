@@ -1,0 +1,150 @@
+/* Navigation Bar */
+
+.side-navbar {
+    width: var(--min-nav-width);
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 0 4px 4px 0;
+    transition: width 1s ease;
+    z-index: 100;
+}
+
+.icon-container {
+    height: 48px;
+    width: 64px;
+    padding: 8px 0 8px 8px;
+    overflow: hidden;
+    border: 0;
+    transition: width 1s ease ;
+    border-radius: 0 4px 4px 0;
+}
+
+.icon {
+    border-radius: 50%;
+    height: 28px;
+    width: 28px;
+    padding: 10px;
+    animation: icon-transition-left 100ms;
+    animation-fill-mode: forwards;
+    filter: grayscale(100%) opacity(0.7);
+    transition: 100ms;
+}
+
+#home-icon {
+    filter: grayscale(0%) opacity(1);
+}
+
+.icon svg {
+    height: inherit;
+    width: inherit;
+    fill: var(--primary)
+}
+
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-text, .nav-text-active {
+    opacity: 0;
+    margin-right: 24px;
+}
+
+/* Animations */
+
+.icon-container:hover {
+    background: rgba(255,255,255,.04);
+    transform: translateX(-8px);
+}
+
+.icon-container:hover .icon {
+    animation: icon-transition-right 100ms;
+    animation-fill-mode: forwards;
+    filter: grayscale(0%) opacity(1);
+}
+
+@keyframes icon-transition-right {
+    from {
+        transform: translateX(8px);
+    }
+    to {
+        transform: translateX(12px);
+    }
+}
+
+@keyframes icon-transition-left {
+    from {
+        transform: translateX(4px);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}
+
+.icon-container:hover .nav-text, .icon-container:hover .nav-text-active {
+    transform: translateX(8px);
+}
+
+.side-navbar:hover {
+    width: var(--max-nav-width);
+}
+
+.side-navbar:hover .icon-container {
+    width: 176px;
+}
+
+
+.side-navbar:hover .nav-text {
+    animation: med-visible .5s .5s;
+    animation-fill-mode: forwards;
+}
+
+.side-navbar:hover .nav-text-active {
+    animation: high-visible .5s .5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes high-visible {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: .67;
+    }
+}
+
+@keyframes med-visible {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: .60;
+    }
+}
+
+/* Rest of the page */
+
+.page {
+    display: flex; 
+    gap: 24px;
+}
+
+.panel {
+    margin: 32px 0px 32px 72px;
+    width: calc(100% - 72px);
+    height: 86vh;
+    padding: 8px;
+    transition: margin 1s ease, width 1s ease;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 19% 19% 19% 19% 19%;
+    grid-template-rows: 18% 18% 18% 18% 18%;
+    gap: 16px;
+    margin-right: 8px;
+    height: inherit;
+}
