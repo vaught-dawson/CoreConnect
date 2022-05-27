@@ -19,11 +19,26 @@ const findOne = (req, res) => {
 };
 
 const create = (req, res) => {
-  Call.create(req.body)
-    .then((call) => res.json({ call }))
-    .catch((err) =>
-      res.status(400).json({ message: "Failed to create", error: err })
-    );
+  const { twilioSID, twilioAuthToken, to, from } = req.body;
+  const client = require("twilio")(twilioSID, twilioAuthToken);
+
+  client.calls
+    .create({
+      twiml:
+        "<Response><Play>http://demo.twilio.com/docs/classic.mp3</Play></Response>",
+      to,
+      from,
+    })
+    .then((call) => {
+      res.json({ call });
+    })
+    .catch((err) => res.status(400).json(err));
+
+  // Call.create(req.body)
+  //   .then((call) => res.json({ call }))
+  //   .catch((err) =>
+  //     res.status(400).json({ message: "Failed to create", error: err })
+  //   );
 };
 
 const update = (req, res) => {

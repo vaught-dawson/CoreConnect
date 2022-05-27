@@ -1,4 +1,4 @@
-// import axios from "axios";
+import axios from "axios";
 import React, { useState } from "react";
 import Button from "./Button";
 
@@ -7,28 +7,23 @@ const CallContainer = ({ campaign = {}, charity = {} }) => {
   const [call, setCall] = useState(false);
 
   const startCall = () => {
-    // axios
-    //   .get(
-    //     `http://localhost:8000/api/phoneNumbers/${charity.phoneNumberIds[0]}`
-    //   )
-    //   .then((res) => {
-    //     const client = require("twilio")(
-    //       charity.twilioSID,
-    //       charity.twilioAuthToken
-    //     );
-    //     client.calls
-    //       .create({
-    //         twiml:
-    //           "<Response><Play>http://demo.twilio.com/docs/classic.mp3</Play></Response>",
-    //         to: number,
-    //         from: res.data.number,
-    //       })
-    //       .then((call) => {
-    //         console.log("Call:", call);
-    //         setCall(call);
-    //       });
-    //   })
-    //   .catch((err) => console.log(err));
+    axios
+      .get(
+        `http://localhost:8000/api/phoneNumbers/${charity.phoneNumberIds[0]}`
+      )
+      .then((res) => {
+        console.log(res);
+        axios
+          .post("http://localhost:8000/api/calls/new", {
+            to: number,
+            from: res.data.phoneNumber.number,
+            twilioSID: charity.twilioSID,
+            twilioAuthToken: charity.twilioAuthToken,
+          })
+          .then((call) => console.log(call))
+          .catch((err) => console.log(err));
+      })
+      .catch((err) => console.log(err));
   };
 
   return (

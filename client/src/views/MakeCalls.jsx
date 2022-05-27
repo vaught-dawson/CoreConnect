@@ -41,10 +41,14 @@ const MakeCalls = ({ campaigns = [], charities = [] }) => {
             }}
           >
             <span className="text-disabled">Additional Info</span>
-            <AdditionalInfoContainer
-              campaign={campaign}
-              charity={charities.filter((c) => c._id == campaign.charityId)[0]}
-            />
+            {campaign && (
+              <AdditionalInfoContainer
+                campaign={campaign}
+                charity={
+                  charities.filter((c) => c._id === campaign.charityId)[0]
+                }
+              />
+            )}
           </div>
           <div
             className="call-container card dp01 on-background"
@@ -56,7 +60,14 @@ const MakeCalls = ({ campaigns = [], charities = [] }) => {
             }}
           >
             <span className="text-disabled">Call</span>
-            <CallContainer />
+            {campaign && (
+              <CallContainer
+                campaign={campaign}
+                charity={
+                  charities.filter((c) => c._id === campaign.charityId)[0]
+                }
+              />
+            )}
           </div>
           <div
             className="call-logs card dp01 on-background"
